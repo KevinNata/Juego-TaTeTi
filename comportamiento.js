@@ -35,7 +35,7 @@ function juego(){
                         juego();  
                         }
                     else {
-                        alert("esta celda ya esta ocupada");
+                        swal(" ¡No va a poder ser! ", "Esta celda esta ocupada", "error");
                         }
                 };
                 dos.onclick = function(e){
@@ -46,7 +46,7 @@ function juego(){
                         juego();
                         }
                     else {
-                        alert("esta celda ya esta ocupada");
+                        swal(" ¡No va a poder ser! ", "Esta celda esta ocupada", "error");
                     }
                 };
                 tres.onclick = function(e){
@@ -57,7 +57,7 @@ function juego(){
                         juego();
                         }
                     else {
-                        alert("esta celda ya esta ocupada");
+                        swal(" ¡No va a poder ser! ", "Esta celda esta ocupada", "error");
                     }
                 };
                 cuatro.onclick = function(e){
@@ -68,7 +68,7 @@ function juego(){
                         juego();
                         }
                     else {
-                        alert("esta celda ya esta ocupada");
+                        swal(" ¡No va a poder ser! ", "Esta celda esta ocupada", "error");
                     }
                 };
                 cinco.onclick = function(e){
@@ -79,7 +79,7 @@ function juego(){
                         juego();
                         }
                     else {
-                        alert("esta celda ya esta ocupada");
+                        swal(" ¡No va a poder ser! ", "Esta celda esta ocupada", "error");
                     }
                 };
                 seis.onclick = function(e){
@@ -90,7 +90,7 @@ function juego(){
                         juego();
                     }
                     else {
-                        alert("esta celda ya esta ocupada");
+                        swal(" ¡No va a poder ser! ", "Esta celda esta ocupada", "error");
                     }
                 };
                 siete.onclick = function(e){
@@ -101,7 +101,7 @@ function juego(){
                         juego();
                     }
                     else {
-                        alert("esta celda ya esta ocupada");
+                        swal(" ¡No va a poder ser! ", "Esta celda esta ocupada", "error");
                     }
                 };
                 ocho.onclick = function(e){
@@ -112,7 +112,7 @@ function juego(){
                         juego();
                     }
                     else {
-                        alert("esta celda ya esta ocupada");
+                        swal(" ¡No va a poder ser! ", "Esta celda esta ocupada", "error");
                     }
                 };
                 nueve.onclick = function(e){
@@ -123,7 +123,7 @@ function juego(){
                         juego();
                     }
                     else {
-                        alert("esta celda ya esta ocupada");
+                        swal(" ¡No va a poder ser! ", "Esta celda esta ocupada", "error");
                     }
                 };
             }
@@ -140,7 +140,7 @@ function juego(){
                 
                 }
                 else {
-                    alert("esta celda ya esta ocupada");
+                    swal(" ¡No va a poder ser! ", "Esta celda esta ocupada", "error");
                 }
             };
             dos.onclick = function(e){
@@ -152,7 +152,7 @@ function juego(){
                 
                 }
                 else {
-                    alert("esta celda ya esta ocupada");
+                    swal(" ¡No va a poder ser! ", "Esta celda esta ocupada", "error");
                 }
             };
             tres.onclick = function(e){
@@ -164,7 +164,7 @@ function juego(){
                
                 }
                 else {
-                    alert("esta celda ya esta ocupada");
+                    swal(" ¡No va a poder ser! ", "Esta celda esta ocupada", "error");
                 }
             };
             cuatro.onclick = function(e){
@@ -176,7 +176,7 @@ function juego(){
                 
                 }
                 else {
-                    alert("esta celda ya esta ocupada");
+                    swal(" ¡No va a poder ser! ", "Esta celda esta ocupada", "error");
                 }
             };
             cinco.onclick = function(e){
@@ -188,7 +188,7 @@ function juego(){
                 
                 }
                 else {
-                    alert("esta celda ya esta ocupada");
+                    swal(" ¡No va a poder ser! ", "Esta celda esta ocupada", "error");
                 }
             };
             seis.onclick = function(e){
@@ -200,7 +200,7 @@ function juego(){
                 
                 }
                 else {
-                    alert("esta celda ya esta ocupada");
+                    swal(" ¡No va a poder ser! ", "Esta celda esta ocupada", "error");
                 }
             };
             siete.onclick = function(e){
@@ -212,7 +212,7 @@ function juego(){
                 
                 }
                 else {
-                    alert("esta celda ya esta ocupada");
+                    swal(" ¡No va a poder ser! ", "Esta celda esta ocupada", "error");
                 }
             };
             ocho.onclick = function(e){
@@ -224,7 +224,7 @@ function juego(){
                 
                 }
                 else {
-                    alert("esta celda ya esta ocupada");
+                    swal(" ¡No va a poder ser! ", "Esta celda esta ocupada", "error");
                 }
             };
             nueve.onclick = function(e){
@@ -236,29 +236,32 @@ function juego(){
                 
                 }
                 else {
-                    alert("esta celda ya esta ocupada");
+                    swal(" ¡No va a poder ser! ", "Esta celda esta ocupada", "error");
                 }
             };
         
         }
     }
    
-    else{
-        preguntarJugarDeNuevo= prompt("Quieres jugar otra vez? Si/No ")
-        if (preguntarJugarDeNuevo=="si" || preguntarJugarDeNuevo=="SI" || preguntarJugarDeNuevo=="Si" || preguntarJugarDeNuevo=="sI"){
-            juegoNuevo();
-            }
-        else{
-            alert("Muchas gracias por jugar."); 
-        }
     
-    }
     
     limpiar.onclick = function(e){
-        confirmacionLimpiar = prompt("Quieres reiniciar el juego? Si/No ");
-        if (confirmacionLimpiar=="si" || confirmacionLimpiar=="sI" || confirmacionLimpiar=="Si" || confirmacionLimpiar== "SI"){
-            juegoNuevo();   
-        }
+        
+        swal({
+            title: "¿Quieres reiniciar el juego?",
+            text: "",
+            icon: "info",
+            buttons: true,
+            dangerMode: true,
+          })
+          .then((willDelete) => {
+            if (willDelete) {
+                juegoNuevo();
+            }
+          });
+
+               
+        
     }    
 } // fin juego();
 
@@ -276,19 +279,19 @@ function condicionesGanarX(){
         
         if (uno.textContent=="x" && dos.textContent=="x" && tres.textContent=="x") {
             ganador=true;
-            alert("Ganan las X");
+            swal(" ¡Las X han ganado!", "", "success");
             turno.textContent = "Las X ganaron."
         }
         
         else if (cuatro.textContent=="x" && cuatro.textContent==cinco.textContent && cuatro.textContent==seis.textContent ){
             ganador=true;
-            alert("Ganan las X");
+            swal(" ¡Las X han ganado!", "", "success");
             turno.textContent = "Las X ganaron."
         }
     
         else if (siete.textContent=="x" && siete.textContent==ocho.textContent && siete.textContent==nueve.textContent ){
             ganador=true;
-            alert("Ganan las X");
+            swal(" ¡Las X han ganado!", "", "success");
             turno.textContent = "Las X ganaron."
         }   
         ////barras horizontales   
@@ -298,17 +301,17 @@ function condicionesGanarX(){
 
         else if (uno.textContent=="x" && uno.textContent==cuatro.textContent && uno.textContent==siete.textContent ){
             ganador=true;
-            alert("Ganan las X");
+            swal(" ¡Las X han ganado!", "", "success");
             turno.textContent = "Las X ganaron."
         }    
         else if (dos.textContent=="x" && dos.textContent==cinco.textContent && dos.textContent==ocho.textContent ){
             ganador=true;
-            alert("Ganan las X");
+            swal(" ¡Las X han ganado!", "", "success");
             turno.textContent = "Las X ganaron."
         } 
         else if (tres.textContent=="x" && tres.textContent==seis.textContent && tres.textContent==nueve.textContent ){
             ganador=true;
-            alert("Ganan las X");
+            swal(" ¡Las X han ganado!", "", "success");
             turno.textContent = "Las X ganaron."
         }    
         ////barras verticales
@@ -318,12 +321,12 @@ function condicionesGanarX(){
 
         else if (uno.textContent=="x" && uno.textContent==cinco.textContent && uno.textContent==nueve.textContent ){
             ganador=true;
-            alert("Ganan las X");
+            swal(" ¡Las X han ganado!", "", "success");
             turno.textContent = "Las X ganaron."
         }    
         else if (tres.textContent=="x" && tres.textContent==cinco.textContent && tres.textContent==siete.textContent ){
             ganador=true;
-            alert("Ganan las X");
+            swal(" ¡Las X han ganado!", "", "success");
             turno.textContent = "Las X ganaron."
         } 
              
@@ -340,19 +343,19 @@ function condicionesGanarX(){
         ////barras horizontales
        if (uno.textContent=="o" && uno.textContent==dos.textContent && uno.textContent==tres.textContent){
         ganador=true;
-        alert("Ganan las O"); 
+        swal(" ¡Las O han ganado!", "", "success");
         turno.textContent = "Las O ganaron."   
     }
         
        else if (cuatro.textContent=="o" && cuatro.textContent==cinco.textContent && cuatro.textContent==seis.textContent ){
         ganador=true;
-        alert("Ganan las O"); 
+        swal(" ¡Las O han ganado!", "", "success");
         turno.textContent = "Las O ganaron." 
     }
        
         else if (siete.textContent=="o" && siete.textContent==ocho.textContent && siete.textContent==nueve.textContent ){
             ganador=true;
-            alert("Ganan las O"); 
+            swal(" ¡Las O han ganado!", "", "success");
             turno.textContent = "Las O ganaron." 
         }
         ////barras horizontales   
@@ -362,19 +365,19 @@ function condicionesGanarX(){
     
         else if (uno.textContent=="o" && uno.textContent==cuatro.textContent && uno.textContent==siete.textContent ){
             ganador=true;
-            alert("Ganan las O"); 
+            swal(" ¡Las O han ganado!", "", "success");
             turno.textContent = "Las O ganaron." 
         }
     
         else if (dos.textContent=="o" && dos.textContent==cinco.textContent && dos.textContent==ocho.textContent ){
             ganador=true;
-            alert("Ganan las O"); 
+            swal(" ¡Las O han ganado!", "", "success"); 
             turno.textContent = "Las O ganaron." 
         }
          
         else if (tres.textContent=="o" && tres.textContent==seis.textContent && tres.textContent==nueve.textContent ){
             ganador=true;
-            alert("Ganan las O"); 
+            swal(" ¡Las O han ganado!", "", "success");
             turno.textContent = "Las O ganaron." 
         }
     
@@ -385,12 +388,12 @@ function condicionesGanarX(){
     
         else if (uno.textContent=="o" && uno.textContent==cinco.textContent && uno.textContent==nueve.textContent ){
             ganador= true
-            alert("Ganan las O");  
+            swal(" ¡Las O han ganado!", "", "success"); 
             turno.textContent = "Las O ganaron."
         }
         else if (tres.textContent=="o" && tres.textContent==cinco.textContent && tres.textContent==siete.textContent ){
             ganador= true
-            alert("Ganan las O"); 
+            swal(" ¡Las O han ganado!", "", "success");
             turno.textContent = "Las O ganaron." 
         }  
                                
@@ -423,9 +426,6 @@ function juegoNuevo(){
 
 juego();
 
-
-
-    
 
 
 
